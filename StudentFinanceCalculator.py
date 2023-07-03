@@ -41,11 +41,11 @@ def placement():
 def what_year_attended():
     what_year_did_you_go_to_uni = int(input('Enter year of going to uni?: '))
     if what_year_did_you_go_to_uni <= 2012:
-        pass
+        return what_year_did_you_go_to_uni
     elif what_year_did_you_go_to_uni >= 2013 or what_year_did_you_go_to_uni <= 2022:
-        pass
+        return what_year_did_you_go_to_uni
     elif what_year_did_you_go_to_uni >= 2023:
-        pass
+        return what_year_did_you_go_to_uni
     else:
         print('Enter a valid year')
 
@@ -55,15 +55,20 @@ def what_year_attended():
 def what_year_finsihed():
     what_year_did_you_finish_uni = int(input('Enter year of finishing uni?: '))
     if what_year_did_you_finish_uni <= 2012:
-        pass
+        return what_year_did_you_finish_uni
     elif what_year_did_you_finish_uni >= 2013 or what_year_did_you_finish_uni <= 2022:
-        pass
+        return what_year_did_you_finish_uni
     elif what_year_did_you_finish_uni >= 2023:
-        pass
+        return what_year_did_you_finish_uni
     else:
         print('Enter a valid year')
 
 # User enters where they went to uni - England, Scotland, Wales, Northern Ireland
+
+
+def month_finished_uni():  # gets month of finishing uni
+    print('Enter month of finishing uni: ')
+    return input('Enter month of finishing uni: ')
 
 
 def where_did_you_go_to_uni():
@@ -116,17 +121,17 @@ def how_much_maintenance_loan():
 def salary_after_uni(what_year_attended):
     salary_after_uni_amount = int(input('What is your salary?: '))
     if what_year_attended <= 2012:
-        if salary_after_uni_amount >= 25000:
+        if salary_after_uni_amount >= 22015:
             # takes inputted salary and takes away 25k then times by 9% to get amount paid towards loan
             print(
-                f'You pay {(salary_after_uni_amount - 25000) / 100 * 9} a year towards your loan')
+                f'You pay {(salary_after_uni_amount - 22015) / 100 * 9} a year towards your loan')
         else:
             print('YOU PAY £0 TOWARRDS YOUR LOAN')
     elif what_year_attended >= 2013 or what_year_attended <= 2022:
-        if salary_after_uni_amount >= 27000:
+        if salary_after_uni_amount >= 27295:
             # takes inputted salary and takes away 27k then times by 9% to get amount paid towards loan
             print(
-                f'You pay {(salary_after_uni_amount - 27000) / 100 * 9} a year towards your loan')
+                f'You pay {(salary_after_uni_amount - 27295) / 100 * 9} a year towards your loan')
         else:
             print('YOU PAY £0 TOWARRDS YOUR LOAN')
     elif what_year_attended >= 2023:
@@ -136,3 +141,24 @@ def salary_after_uni(what_year_attended):
                 f'You pay {(salary_after_uni_amount - 25000) / 100 * 9} a year towards your loan')
         else:
             print('YOU PAY £0 TOWARRDS YOUR LOAN')
+
+
+def total_debt():
+    total_debt = tuition_fees + how_much_maintenance_loan
+    return total_debt
+
+
+def how_long_do_you_have():
+    if what_year_attended <= 2012 and month_finished_uni == ('September', 'October', 'November', 'December'):
+        print('You have 25 years to pay back your loan or its wiped')
+    elif what_year_attended <= 2012 and month_finished_uni == ('January', 'February', 'March', 'April', 'May', 'June', 'July', 'August'):
+        print('You have till 65 to pay back your loan or its wiped')
+    elif what_year_attended >= 2013 or what_year_attended <= 2022:
+        print('You have 30 years to pay back your loan or its wiped')
+    elif what_year_attended >= 2023:
+        print('You have 30 years to pay back your loan or its wiped')
+    return how_long_do_you_have
+
+
+if __name__ == "__main__":  # If this file is run directly, run main()
+    main()
