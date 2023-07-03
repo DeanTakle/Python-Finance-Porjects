@@ -9,7 +9,7 @@ def main():
     tuition_fees()
     maintenance_loan()
     how_much_maintenance_loan()
-    salary_after_uni(tuition_fees, maintenance_loan, how_much_maintenance_loan)
+    salary_after_uni(what_year_attended)
 
 # Users eneter how long they spent at uni - 1, 2, 3, 4 years
 
@@ -25,8 +25,9 @@ def time_at_uni():
     elif time_spent_at_uni == 4:
         return 4
 
-
 # User enters if they went on a placement year
+
+
 def placement():
     did_you_do_a_placement = input('Did you do a placement year?: ')
     if did_you_do_a_placement == 'yes':
@@ -112,5 +113,26 @@ def how_much_maintenance_loan():
 # User enters salary - if 2012 >= 25000, after 2012 >= 27000, after 2023 >= 25000
 
 
-def salary_after_uni(tuition_fees, maintenance_loan, how_much_maintenance_loan):
+def salary_after_uni(what_year_attended):
     salary_after_uni_amount = int(input('What is your salary?: '))
+    if what_year_attended <= 2012:
+        if salary_after_uni_amount >= 25000:
+            # takes inputted salary and takes away 25k then times by 9% to get amount paid towards loan
+            print(
+                f'You pay {(salary_after_uni_amount - 25000) / 100 * 9} a year towards your loan')
+        else:
+            print('YOU PAY £0 TOWARRDS YOUR LOAN')
+    elif what_year_attended >= 2013 or what_year_attended <= 2022:
+        if salary_after_uni_amount >= 27000:
+            # takes inputted salary and takes away 27k then times by 9% to get amount paid towards loan
+            print(
+                f'You pay {(salary_after_uni_amount - 27000) / 100 * 9} a year towards your loan')
+        else:
+            print('YOU PAY £0 TOWARRDS YOUR LOAN')
+    elif what_year_attended >= 2023:
+        if salary_after_uni_amount >= 25000:
+            # takes inputted salary and takes away 25k then times by 9% to get amount paid towards loan
+            print(
+                f'You pay {(salary_after_uni_amount - 25000) / 100 * 9} a year towards your loan')
+        else:
+            print('YOU PAY £0 TOWARRDS YOUR LOAN')
