@@ -10,6 +10,9 @@ def main():
     maintenance_loan()
     how_much_maintenance_loan()
     salary_after_uni(what_year_attended)
+    total_debt()
+    how_long_do_you_have()
+
 
 # Users eneter how long they spent at uni - 1, 2, 3, 4 years
 
@@ -141,6 +144,16 @@ def salary_after_uni(what_year_attended):
                 f'You pay {(salary_after_uni_amount - 25000) / 100 * 9} a year towards your loan')
         else:
             print('YOU PAY £0 TOWARRDS YOUR LOAN')
+
+
+def intrest_rate():
+    if what_year_attended <= 2012:
+        print('Your intrest rate is 1.5%')
+    elif what_year_attended >= 2013 or what_year_attended <= 2022:
+        print('Your intrest rate is 3%')
+    elif what_year_attended >= 2023:
+        print('Your intrest rate is 6.3%')
+    return intrest_rate
 
 
 def total_debt():
